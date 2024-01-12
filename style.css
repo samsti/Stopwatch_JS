@@ -1,35 +1,31 @@
-body{
-    background-color: orange;
-    align-content: center;
+body {
+    background-color: lightblue;
     text-align: center;
     margin: 20rem;
-
-
 }
 
-h1{
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
+h1 {
+    color: navy;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
 
 button {
-    border-radius: 10px;
-    background-color: orange;
+    border-radius: 8px;
+    background-color: navy;
     color: white;
     border: solid 1px white;
     text-decoration: none;
     cursor: pointer;
     font-size: 1.2em;
-    padding: 18px 10px;
-    width: 180px;
+    padding: 15px 8px;
+    width: 150px;
     margin: 10px;
     outline: none;
 }
 
-p{
-    color: white;
-    font-size: 3rem;
-    font-family: 'Roboto', sans-serif;
-
+p {
+    color: navy;
+    font-size: 2.5rem;
+    font-family: 'Arial', sans-serif;
 }

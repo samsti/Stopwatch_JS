@@ -1,73 +1,60 @@
 window.onload = function () {
-
+    let milliseconds = "00";
     let seconds = "00";
-    let tens = "00";
     let minutes = "00";
-    let appendTens = document.getElementById("tens")
-    let appendSeconds = document.getElementById("seconds")
-    let appendMinutes = document.getElementById("minutes")
-    let buttonStart = document.getElementById('button-start');
-    let buttonStop = document.getElementById('button-stop');
-    let buttonReset = document.getElementById('button-reset');
-    let Interval ;
+    let displayMilliseconds = document.getElementById("millisecondsDisplay");
+    let displaySeconds = document.getElementById("secondsDisplay");
+    let displayMinutes = document.getElementById("minutesDisplay");
+    let startButton = document.getElementById('startBtn');
+    let pauseButton = document.getElementById('pauseBtn');
+    let resetButton = document.getElementById('resetBtn');
+    let timerInterval;
 
-    buttonStart.onclick = function() {
+    startButton.onclick = function () {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(startTimer, 10);
+    };
 
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
-    }
+    pauseButton.onclick = function () {
+        clearInterval(timerInterval);
+    };
 
-    buttonStop.onclick = function() {
-        clearInterval(Interval);
-    }
-
-
-    buttonReset.onclick = function() {
-        clearInterval(Interval);
-        tens = "00";
+    resetButton.onclick = function () {
+        clearInterval(timerInterval);
+        milliseconds = "00";
         seconds = "00";
         minutes = "00";
-        appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
-    }
+        displayMilliseconds.innerHTML = milliseconds;
+        displaySeconds.innerHTML = seconds;
+    };
 
+    function startTimer() {
+        milliseconds++;
 
-
-    function startTimer () {
-        tens++;
-
-        if(tens <= 9){
-            appendTens.innerHTML = "0" + tens;
+        if (milliseconds <= 9) {
+            displayMilliseconds.innerHTML = "0" + milliseconds;
         }
 
-        if (tens > 9){
-            appendTens.innerHTML = tens;
-
+        if (milliseconds > 9) {
+            displayMilliseconds.innerHTML = milliseconds;
         }
 
-
-
-        if (tens > 99) {
+        if (milliseconds > 99) {
             seconds++;
-            appendSeconds.innerHTML = "0" + seconds;
-            tens = 0;
-            appendTens.innerHTML = "0" + 0;
+            displaySeconds.innerHTML = "0" + seconds;
+            milliseconds = 0;
+            displayMilliseconds.innerHTML = "0" + 0;
         }
 
-        if (seconds > 59){
+        if (seconds > 59) {
             minutes++;
-            appendMinutes.innerHTML = "0" + minutes;
+            displayMinutes.innerHTML = "0" + minutes;
             seconds = 0;
-            appendSeconds.innerHTML = "0" + 0;
-
+            displaySeconds.innerHTML = "0" + 0;
         }
 
-
-        if (seconds > 9){
-            appendSeconds.innerHTML = seconds;
+        if (seconds > 9) {
+            displaySeconds.innerHTML = seconds;
         }
-
     }
-
-
-}
+};
